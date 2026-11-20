@@ -1,0 +1,13 @@
+# Build environment aligned with ED_drone (FC board: ESP32-S2-WROVER, 2MB flash, 2MB PSRAM)
+CONFIG_IDF_TARGET="esp32s2"
+
+# I2C pins are defined in components/common/include/config.h
+# (same values as ED_drone: I2C0 SDA=11 SCL=10, I2C1 SDA=40 SCL=41)
+
+# PSRAM (ESP32-S2-WROVER 2MB PSRAM) - kept identical so the same GPIOs/clock config apply
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_USE_MALLOC=y
+CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY=y
+
+# FreeRTOS tick 1 kHz (same as ED_drone)
+CONFIG_FREERTOS_HZ=1000
